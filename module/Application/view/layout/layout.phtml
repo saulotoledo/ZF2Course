@@ -46,7 +46,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
-                    <?php echo $this->categories; ?>
+                    <ul>
+                    <?php
+
+                        foreach ($this->categories as $category) {
+                            echo '<li>' . $category . '</li>';
+                        }
+
+                    ?>
+                    </ul>
                 </div>
                 <div class="col-lg-8">
                     <?php echo $this->content; ?>

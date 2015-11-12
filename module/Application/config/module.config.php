@@ -60,6 +60,26 @@ return array(
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
         ),
+        'services' => array(
+            'categories' => array(
+                'barter',
+                'health',
+                'beauty',
+                'household',
+                'clothing',
+                'phones',
+                'computer',
+                'property',
+                'entertainment',
+                'sporting',
+                'free',
+                'tools',
+                'garden',
+                'transportation',
+                'general',
+                'wanted',
+            ),
+        ),
     ),
     'translator' => array(
         'locale' => 'en_US',
