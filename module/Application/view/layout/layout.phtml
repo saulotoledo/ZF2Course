@@ -49,9 +49,7 @@
                     <ul>
                     <?php
 
-                        foreach ($this->categories as $category) {
-                            echo '<li>' . $category . '</li>';
-                        }
+                        echo $this->leftLinks($this->categories, $this->basePath() . '/market/view/main');
 
                     ?>
                     </ul>

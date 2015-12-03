@@ -1,4 +1,4 @@
 <strong>Module:</strong>        Market &raquo;
 <strong>Controller:</strong>    View &raquo;
 <strong>Action:</strong>        index
-<h1><?= $this->category; ?></h1>
+<h1><?= ucfirst($this->escapeHtml($this->category)); ?></h1>
