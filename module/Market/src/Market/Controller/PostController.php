@@ -10,6 +10,8 @@ class PostController extends AbstractActionController
     public $categories;
     private $postForm;
 
+    use ListingsTableTrait;
+
     public function setPostForm($postForm)
     {
         $this->postForm = $postForm;
@@ -33,6 +35,7 @@ class PostController extends AbstractActionController
         if ($this->getRequest()->isPost()) {
             $this->postForm->setData($data);
             if ($this->postForm->isValid()) {
+                $this->listingsTable->addPosting($this->postForm->getData());
                 $this->flashMessenger()->addMessage("Thank you!");
                 $this->redirect()->toRoute('home');
             } else {

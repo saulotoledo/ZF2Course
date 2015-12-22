@@ -23,6 +23,7 @@ class PostControllerFactory implements FactoryInterface
         $postController = new PostController();
         $postController->setCategories($categories);
         $postController->setPostForm($allServices->get('market-post-form'));
+        $postController->setListingsTable($allServices->get('listings-table'));
 
         return $postController;
     }

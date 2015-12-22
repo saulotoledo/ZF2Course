@@ -47,11 +47,9 @@ class PostFormFilter extends InputFilter
         ;
         $photo
             ->getValidatorChain()
-            ->attachByName('Regex', array('pattern' => '!^(http://)?[a-z0-9./_-]+(jp(e)?g|png)$!i'))
+            ->attachByName('Regex', array('pattern' => '!^(http(s)?://)?[a-z0-9./_-]+(jp(e)?g|png)$!i'))
         ;
         $photo->setErrorMessage('Photo must be a URL or a valid filename ending with jpg or png');
-
-
 
         $name = new Input('contact_name');
         $name->setAllowEmpty(TRUE);
@@ -96,6 +94,10 @@ class PostFormFilter extends InputFilter
             ->getFilterChain()
             ->attachByName('StripTags')
             ->attachByName('StringTrim')
+        ;
+        $city
+            ->getValidatorChain()
+            ->attachByName('InArray', array('haystack' => PostForm::$cityCodes))
         ;
 
         $price = new Input('price');

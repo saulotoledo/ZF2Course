@@ -18,6 +18,17 @@ class PostForm extends Form
     use ExpireDaysTrait;
     use CaptchaTrait;
 
+    public static $cityCodes = array(
+        'Aarhus,DK',
+        'Abadan,IR',
+        'Aberdeen,GB',
+        'Aberdeen,US',
+        'Hamilton,CA',
+        'Odessa,UA',
+        'Oerebro,SE',
+        'Walvis Bay,ZA',
+    );
+
     public function buildForm()
     {
         $this->setAttribute('method', 'POST');
@@ -74,12 +85,14 @@ class PostForm extends Form
             ->setAttribute('maxlength', 32)
         ;
 
-        $city = new Text('cityCode');
+        $city = new Select('cityCode');
         $city
             ->setLabel('Nearest City')
-            ->setAttribute('title', 'The city of the item')
+            ->setValueOptions(array_combine(
+                self::$cityCodes,
+                self::$cityCodes
+            ))
             ->setAttribute('id', 'cityCode')
-            ->setAttribute('placeholder', 'Nearest City')
         ;
 
         $price = new Text('price');

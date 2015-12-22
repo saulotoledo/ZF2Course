@@ -1,4 +1,5 @@
-<strong>Module:</strong>        Market &raquo;
-<strong>Controller:</strong>    View &raquo;
-<strong>Action:</strong>        item
-<h1><?= $this->itemId; ?></h1>
+<h1>Online Market</h1>
+
+<?php
+echo $this->partial('market/partials/item', array('item' => $this->item));
+?>

@@ -1,7 +1,8 @@
-<strong>Module:</strong>        Market &raquo;
-<strong>Controller:</strong>    Index &raquo;
-<strong>Action:</strong>        index
 <?php
 if (isset($this->messages) && count($this->messages)) {
     echo $this->htmllist($this->messages);
 }
+
+echo $this->partial('market/partials/item', array('item' => $this->item));
+?>
+
