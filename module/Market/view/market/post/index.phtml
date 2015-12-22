@@ -1,3 +1,28 @@
+<style>
+    label {
+        margin-right: 40px;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+
+
+    label span {
+        padding-right: 10px;
+    }
+
+    fieldset li {
+        color: red;
+    }
+
+    fieldset input[type="radio"] {
+        margin-right: 5px;
+    }
+</style>
 <?php
-Zend\Debug\Debug::dump($this->categories);
+$this->postForm->prepare();
+echo $this->form()->openTag($this->postForm);
+echo $this->formCollection($this->postForm);
+echo $this->form()->closeTag();
+
+Zend\Debug\Debug::dump($this->data);
 ?>

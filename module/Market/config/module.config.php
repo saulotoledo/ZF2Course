@@ -1,5 +1,29 @@
 <?php
 return array(
+    'service_manager' => array(
+        'factories' => array(
+            'market-post-form' => 'Market\Factory\PostFormFactory',
+            'market-post-filter' => 'Market\Factory\PostFormFilterFactory',
+        ),
+        'services' => array(
+            'market-expire-days' => array(
+                0   => 'Never',
+                1   => 'Tomorrow',
+                7   => 'Week',
+                30  => 'Month',
+                360 => 'Year',
+            ),
+            'market-captcha-options' => array(
+                'expiration' => 300,
+                'font'		=> __DIR__ . '/../../../data/fonts/FreeSansBold.ttf',
+                'fontSize'	=> 24,
+                'height'	=> 50,
+                'width'		=> 200,
+                'imgDir'	=> __DIR__ . '/../../../public/captcha',
+                'imgUrl'	=> '/captcha',
+            ),
+        ),
+    ),
     'controllers' => array(
         'invokables' => array(
             'market-index-controller' => 'Market\Controller\IndexController',
